@@ -6,7 +6,7 @@ from django.core.paginator import EmptyPage, Paginator, PageNotAnInteger
 
 
 def index(request):
-  listings = Listing.objects.all()
+  listings = Listing.objects.order_by('-list_date')
   #pagination
   paginator = Paginator(listings, 3)
   page = request.GET.get('page')
